@@ -57,7 +57,7 @@ public class BoardController {
         return boardService.searchBoard(boardNo);
     }
 
-    //게시물삭제
+    //게시물삭제(소프트 삭제)
     @DeleteMapping("board/delete")
     public String deleteBoard(
             @RequestParam("boardNo") Long boardNo
