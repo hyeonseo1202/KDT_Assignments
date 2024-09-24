@@ -1,7 +1,5 @@
 package com.example.boardSonic.controller;
 
-import com.example.boardSonic.model.request.BoardDeleteRequest;
-import com.example.boardSonic.model.request.BoardPostRequest;
 import com.example.boardSonic.model.response.BoardListResponse;
 import com.example.boardSonic.model.response.BoardResponse;
 import com.example.boardSonic.service.BoardService;
@@ -25,6 +23,18 @@ public class BoardController {
     ) {
         return boardService.writeBoard(title,body);
     }
+
+    //게시물 수정
+    //Post는 create. put은 update or replace
+    @PutMapping("board/update")
+    public BoardResponse updateBoard(
+            @RequestParam("boardNo") Long boardNo,
+            @RequestParam("title") String title,
+            @RequestParam("body") String body
+    ){
+        return boardService.updateBoard(boardNo, title, body);
+    }
+
 
     //조회
     //페이징조회. 다건. 댓글 가져오지 않음. 게시물 목록

@@ -18,6 +18,7 @@ public class BoardResponse {
     private DeleteStatus deleteStatus;
     private List<CommentResponse> comments;
 
+
     //정적 팩토리 메서드
     // board entity-> board response
     public static BoardResponse from(Board board) {

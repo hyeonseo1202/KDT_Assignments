@@ -2,8 +2,6 @@ package com.example.boardSonic.service;
 
 import com.example.boardSonic.model.DeleteStatus;
 import com.example.boardSonic.model.entity.Board;
-import com.example.boardSonic.model.request.BoardDeleteRequest;
-import com.example.boardSonic.model.request.BoardPostRequest;
 import com.example.boardSonic.model.response.BoardListResponse;
 import com.example.boardSonic.model.response.BoardResponse;
 import com.example.boardSonic.repository.BoardRepository;
@@ -55,6 +53,20 @@ public class BoardService {
         //게시물 삭제시 코멘트 삭제도 필요
 
         return "OK";
+    }
+
+    @Transactional
+    public BoardResponse updateBoard(Long boardNo, String title, String body){
+        //기존 게시물 찾기
+        Board board = boardRepository.findById(boardNo)
+                .orElseThrow(()->new IllegalArgumentException("존재하지 않는 게시물! boardNo="+boardNo));
+
+        //update
+        board.setTitle(title);
+        board.setBody(body);
+
+        //save + return
+        return BoardResponse.from(boardRepository.save(board));
     }
 }
 
