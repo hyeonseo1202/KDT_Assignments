@@ -14,7 +14,7 @@ public class CommentController {
     private final CommentService commentService;
 
     //댓글 등록
-    @PostMapping("comment")
+    @PostMapping("comment/create")
     public BoardResponse writeComment(
             @RequestBody CommentPostRequest commentPostRequest
     ) {

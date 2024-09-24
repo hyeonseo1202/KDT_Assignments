@@ -23,10 +23,10 @@ public class BoardService {
     private final BoardRepository boardRepository;
     //게시글 등록
     @Transactional
-    public BoardResponse writeBoard(BoardPostRequest request) {
+    public BoardResponse writeBoard(String title, String body) {
         Board board = new Board();
-        board.setTitle(request.getTitle());
-        board.setBody(request.getBody());
+        board.setTitle(title);
+        board.setBody(body);
         board.setDeleteStatus(DeleteStatus.ACTIVE);
 
         return BoardResponse.from(boardRepository.save(board));
@@ -46,9 +46,9 @@ public class BoardService {
     }
 
     @Transactional
-    public String deleteBoard(BoardDeleteRequest request) {
+    public String deleteBoard(Long boardNo) {
         //예외
-        Optional<Board> boardOptional = boardRepository.findById(request.getBoardNo());
+        Optional<Board> boardOptional = boardRepository.findById(boardNo);
         Board board = boardOptional.orElseThrow(() -> new RuntimeException("존재하지않는 게시물!"));
 
         boardRepository.delete(board);
