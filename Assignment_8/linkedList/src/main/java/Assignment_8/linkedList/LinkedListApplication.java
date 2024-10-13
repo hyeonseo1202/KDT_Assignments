@@ -8,8 +8,6 @@ public class LinkedListApplication {
 
 	public static void main(String[] args) {
 
-
-
 	}
 
 }
