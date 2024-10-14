@@ -1,4 +1,4 @@
-package Assignment_8.linkedList;
+package Assignment_8.linkedList.stack;
 
 import Assignment_8.linkedList.stack.StackUseLinkedList;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,23 +18,33 @@ class StackUseLinkedListTest {
         stack.insertStack("first");
         stack.insertStack("second");
         stack.insertStack("third");
-        // 스택 동작 확인
+
+        // 스택의 맨 위 값 확인 (LIFO이므로 "third"가 맨 위여야 함)
+        assertEquals("third", stack.peekStack(), "스택의 맨 위 값은 'third'여야 합니다.");
+        assertEquals(3, stack.size(), "스택에 3개의 요소가 있어야 합니다.");
     }
 
     @Test
     void testDeleteStack() {
         stack.insertStack("first");
         stack.insertStack("second");
-        stack.deleteStack(); // 뒤에서부터 삭제
-        // 삭제 후 리스트 확인
+        stack.deleteStack(); // 맨 위에서부터 삭제
+
+        // 삭제 후 스택의 맨 위 값 확인
+        assertEquals("first", stack.peekStack(), "삭제 후 맨 위 값은 'first'여야 합니다.");
+        assertEquals(1, stack.size(), "삭제 후 스택에 1개의 요소가 있어야 합니다.");
     }
 
     @Test
     void testPrintStack() {
         stack.insertStack("first");
         stack.insertStack("second");
+
+        // 스택 출력 확인
+        System.out.println("스택 내용:");
         stack.printStack();
-        // 출력 확인은 콘솔 출력으로 직접 확인하거나 추가 처리 가능
+
+        // 스택 내용 확인을 위한 직접적인 출력은 콘솔에서 확인
+        assertEquals(2, stack.size(), "스택에 2개의 요소가 있어야 합니다.");
     }
 }
-

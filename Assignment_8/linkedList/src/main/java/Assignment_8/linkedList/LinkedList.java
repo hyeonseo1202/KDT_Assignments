@@ -1,12 +1,9 @@
 package Assignment_8.linkedList;
 
-import java.awt.dnd.DragSourceMotionListener;
-
-public class LinkedList implements LinkedListInterface{
+public class LinkedList {
     private ListNode head;
 
-    public LinkedList(ListNode head) {
-        this.head = head;
+    public LinkedList() {
     }
 
     /**
@@ -23,6 +20,19 @@ public class LinkedList implements LinkedListInterface{
             head = newNode;
         }
     }
+    public void insertTailNode(String data) {
+        ListNode newNode = new ListNode(data);
+        if (head == null) {
+            head = newNode; // 리스트가 비어 있으면 새 노드를 head로 설정
+        } else {
+            ListNode tempNode = head;
+            while (tempNode.link != null) { // 마지막 노드까지 이동
+                tempNode = tempNode.link;
+            }
+            tempNode.link = newNode; // 마지막에 새 노드를 추가
+        }
+    }
+
     public void deleteTailNode(){
         ListNode preNode;
         ListNode tempNode;
@@ -81,5 +91,22 @@ public class LinkedList implements LinkedListInterface{
         }
         System.out.println();
     }
+    // 큐의 맨 앞 요소 반환 (삭제하지 않음)
+    public String peekHeadNode() {
+        if (head == null) {
+            return null;
+        }
+        return head.getData();
+    }
 
+    // 리스트 크기 반환
+    public int size() {
+        int count = 0;
+        ListNode tempNode = head;
+        while (tempNode != null) {
+            count++;
+            tempNode = tempNode.link;
+        }
+        return count;
+    }
 }
