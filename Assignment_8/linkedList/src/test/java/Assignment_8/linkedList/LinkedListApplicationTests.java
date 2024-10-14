@@ -1,13 +1,12 @@
 package Assignment_8.linkedList;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class LinkedListApplicationTests {
+class LinkedListApplicationTest {
 
 	@Test
 	void contextLoads() {
+		// 애플리케이션 실행 테스트
+		LinkedListApplication.main(new String[] {});
 	}
-
 }
