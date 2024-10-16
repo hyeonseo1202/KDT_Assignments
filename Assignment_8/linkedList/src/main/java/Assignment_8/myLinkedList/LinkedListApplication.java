@@ -1,6 +1,5 @@
-package Assignment_8.linkedList;
+package Assignment_8.myLinkedList;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication

@@ -1,4 +1,4 @@
-package Assignment_8.linkedList;
+package Assignment_8.myLinkedList;
 
 import org.junit.jupiter.api.Test;
 
