@@ -20,7 +20,6 @@ public class CartApp {
 	for(Product product : productSet) {
 		System.out.println(product.getName() + " : " + product.getPrice());
 	}
-
 	//장바구니 생성
 	Cart myCart = new Cart();
 	//TODO: 상품을 장바구니에 추가
