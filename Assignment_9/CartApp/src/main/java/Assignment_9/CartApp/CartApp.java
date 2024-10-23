@@ -11,6 +11,7 @@ public class CartApp {
 	public static void main(String[] args) {
 		SpringApplication.run(CartApp.class, args);
 	}
+
 	// 상품 목록 생성
 	Set<Product> ProductSet = new HashSet<>();
 	//TODO: 상품 클래스를 생성하여 상품 목록에 넣는다.
