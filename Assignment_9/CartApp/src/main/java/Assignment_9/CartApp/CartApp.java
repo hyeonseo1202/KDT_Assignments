@@ -24,6 +24,8 @@ public class CartApp {
 	}
 	//장바구니 생성
 	Cart myCart = new Cart();
+
+
 	//TODO: 상품을 장바구니에 추가
 	//TODO: 상품을 장바구니에서 제거
 	//TODO: 장바구니에 현재 담긴 상품들을 출력 (상품 이름, 각 상품의 갯수)
